@@ -1,4 +1,4 @@
-module.exports = promiseTimeout(promise, timeout, errMsg = 'The operation timed out.') => {
+module.exports = (promise, timeout, errMsg = 'The operation timed out.') => {
 
 	let timeoutID
 
