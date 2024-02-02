@@ -1,25 +1,25 @@
 # @chriscdn/promise-timeout
 
-This utility wraps a promise, which will reject if the wrapped promise doesn't resolve or reject within a certain amount of time.  Otherwise, it returns the resolve or reject of the original promise.
+This utility wraps a promise, which will reject if the wrapped promise doesn't resolve or reject within a certain amount of time. Otherwise, it returns the resolve or reject of the original promise.
 
 ## Installing
 
 Using npm:
 
 ```bash
-$ npm install @chriscdn/promise-timeout
+npm install @chriscdn/promise-timeout
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add @chriscdn/promise-timeout
+yarn add @chriscdn/promise-timeout
 ```
 
 ## Example
 
 ```js
-const promiseTimeout = require('@chriscdn/promise-timeout')
+import promiseTimeout from '@chriscdn/promise-timeout'
 
 const myPromise = ...
 
@@ -35,7 +35,7 @@ promiseTimeout(myPromise, 5000)
 You can also pass a custom error message:
 
 ```js
-promiseTimeout(myPromise, 5000, 'Oops, the promise took too long!')
+promiseTimeout(myPromise, 5000, "Oops, the promise took too long!");
 ```
 
 ## License
