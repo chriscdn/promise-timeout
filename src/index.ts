@@ -1,4 +1,4 @@
-const promiseRetry = <T>(
+const promiseTimeout = <T>(
   promise: Promise<T>,
   timeout: number,
   errMsg = "The promise timed out.",
@@ -6,13 +6,15 @@ const promiseRetry = <T>(
   let timeoutID;
 
   const timeOutPromise = new Promise<T>(
-    (_resolve, reject) =>
-      (timeoutID = setTimeout(() => reject(new Error(errMsg)), timeout)),
+    (
+      _,
+      reject,
+    ) => (timeoutID = setTimeout(() => reject(new Error(errMsg)), timeout)),
   );
 
   return Promise.race([promise, timeOutPromise]).finally(() =>
-    clearTimeout(timeoutID),
+    clearTimeout(timeoutID)
   );
 };
 
-export default promiseRetry;
+export default promiseTimeout;
