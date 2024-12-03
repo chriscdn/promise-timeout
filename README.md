@@ -16,20 +16,38 @@ Using yarn:
 yarn add @chriscdn/promise-timeout
 ```
 
-## Example
+## Breaking Changes to v2
+
+Use:
+
+```ts
+import { promiseTimeout } from "@chriscdn/promise-timeout";
+```
+
+instead of:
+
+```ts
+import promiseTimeout from "@chriscdn/promise-timeout";
+```
+
+The package also includes an `asyncTimeout` function. The documentation is pending.
+
+## Example - Promises
 
 ```js
-import promiseTimeout from '@chriscdn/promise-timeout'
+import { promiseTimeout } from "@chriscdn/promise-timeout";
 
-const myPromise = ...
+const myPromise = Promise.resolve(5);
 
 promiseTimeout(myPromise, 5000)
-	.then(() => {
-		console.log('myPromise resolved normally')
-	})
-	.catch(err => {
-		console.log('myPromise rejected, or did not resolve or reject withing 5000ms)
-	})
+  .then(() => {
+    console.log("myPromise resolved normally");
+  })
+  .catch((err) => {
+    console.log(
+      "myPromise rejected, or did not resolve or reject withing 5000ms",
+    );
+  });
 ```
 
 You can also pass a custom error message:
