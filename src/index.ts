@@ -1,20 +1,31 @@
+export type Options = {
+  timeout?: number;
+  errorMessage?: string;
+  onTimeout?: () => void;
+};
+
 const promiseTimeout = <T>(
   promise: Promise<T>,
-  timeout: number,
-  errMsg = "The promise timed out.",
+  options: Options,
 ): Promise<T> => {
-  return asyncTimeout(() => promise, timeout, errMsg);
+  return asyncTimeout(() => promise, options);
 };
 
 const asyncTimeout = <T>(
   asyncFn: () => Promise<T>, // Accepts an async function or a function returning a Promise
-  timeout: number,
-  errMsg = "The promise timed out.",
+  options: Options,
 ): Promise<T> => {
+  const timeout = options.timeout ?? 30 * 1000; // 30s
+  const errorMessage = options.errorMessage ?? "The promise timed out.";
+  const onTimeout = options.onTimeout ?? (() => {});
+
   let timeoutID: ReturnType<typeof setTimeout>;
 
   const timeOutPromise = new Promise<T>((_, reject) =>
-    timeoutID = setTimeout(() => reject(new Error(errMsg)), timeout)
+    timeoutID = setTimeout(() => {
+      onTimeout();
+      reject(new Error(errorMessage));
+    }, timeout)
   );
 
   return Promise.race([asyncFn(), timeOutPromise]) // Invoke asyncFn to get the Promise
