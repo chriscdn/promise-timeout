@@ -1,8 +1,8 @@
 # @chriscdn/promise-timeout
 
-This utility wraps a promise or asynchronous function, which will reject if the wrapped promise doesn't resolve or reject within a certain amount of time. Otherwise, it returns the resolve or reject of the original promise.
+This utility wraps a promise or asynchronous function and will reject if the wrapped promise or function doesn't resolve or reject within a specified time limit. If it resolves or rejects within the given time, the utility returns the result.
 
-Keep in mind that a timed out promise remains pending and should still resolve or reject in the future. This package only provides a way to retain control if an asynchronous operation takes longer than expected.
+Keep in mind that a timed-out promise will remain pending and may still resolve or reject in the future. This package only allows you to maintain control over operations that take longer than expected.
 
 ## Installing
 
@@ -66,12 +66,12 @@ try {
 
 ## Options
 
-A few options can be passed into `promiseTimeout` and `asyncTimeout`. All options are optional. Below are the defaults:
+The `promiseTimeout` and `asyncTimeout` functions accept an `Options` object, with the following defaults:
 
 ```ts
 const options = {
   timeout: 30000, // timeout, in milliseconds
-  onTimeout: () => {}, // callback if timeout occurs, called before promise is rejected
+  onTimeout: () => {}, // callback if a timeout occurs, called before promise is rejected
   errorMessage: "The promise timed out.", // The time out exception. Used when constructing the error object.
 };
 ```
