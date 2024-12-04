@@ -24,7 +24,7 @@ The import and interface changed slightly. See below.
 
 ## Usage
 
-The package provides a `promiseTimeout` and an `asyncTimeout` function. The `promiseTimeout` function is designed for use with a `Promise`, whereas the `asyncTimeout` function is intended for an async function (which _returns_ a `Promise`).
+The package provides a `promiseTimeout` and an `asyncTimeout` function. The `promiseTimeout` function is designed for use with a `Promise`, whereas the `asyncTimeout` function is intended for an `async` function (which _returns_ a `Promise`).
 
 ## Example - Promises
 
@@ -48,7 +48,7 @@ promiseTimeout(myPromise, { timeout: 1000 })
   });
 ```
 
-## Example - Promises
+## Example - Async Function
 
 ```js
 import { asyncTimeout } from "@chriscdn/promise-timeout";
