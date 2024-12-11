@@ -1,6 +1,6 @@
 {
   "name": "@chriscdn/promise-timeout",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Timeout a promise.",
   "repository": "https://github.com/chriscdn/promise-timeout",
   "author": "Christopher Meyer <chris@schwiiz.org>",
