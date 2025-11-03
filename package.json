@@ -7,13 +7,13 @@
   "license": "MIT",
   "type": "module",
   "source": "./src/index.ts",
-  "main": "./lib/promise-retry.cjs",
-  "module": "./lib/promise-retry.module.js",
-  "unpkg": "./lib/promise-retry.umd.js",
+  "main": "./lib/promise-timeout.cjs",
+  "module": "./lib/promise-timeout.module.js",
+  "unpkg": "./lib/promise-timeout.umd.js",
   "exports": {
     "types": "./lib/index.d.ts",
-    "require": "./lib/promise-retry.cjs",
-    "default": "./lib/promise-retry.modern.js"
+    "require": "./lib/promise-timeout.cjs",
+    "default": "./lib/promise-timeout.modern.js"
   },
   "types": "./lib/index.d.ts",
   "scripts": {
@@ -27,7 +27,9 @@
   ],
   "devDependencies": {
     "microbundle": "^0.15.1",
-    "vitest": "^2.1.8"
+    "vitest": "^4.0.6"
   },
-  "dependencies": {}
+  "files": [
+    "lib"
+  ]
 }

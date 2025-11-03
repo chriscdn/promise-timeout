@@ -7,9 +7,7 @@ export type Options = {
 const promiseTimeout = <T>(
   promise: Promise<T>,
   options: Options,
-): Promise<T> => {
-  return asyncTimeout(() => promise, options);
-};
+): Promise<T> => asyncTimeout(() => promise, options);
 
 const asyncTimeout = <T>(
   asyncFn: () => Promise<T>, // Accepts an async function or a function returning a Promise

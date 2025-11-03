@@ -43,7 +43,7 @@ promiseTimeout(myPromise, { timeout: 1000 })
   })
   .catch((err) => {
     console.log(
-      "myPromise rejected, or did not resolve or reject withing 5000ms",
+      "myPromise rejected, or did not resolve or reject withing 5000ms"
     );
   });
 ```
